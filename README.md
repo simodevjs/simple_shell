@@ -1,1 +1,1 @@
-this is my simple shell projetct
+Seif and Mohamed : this is our simple shell projetct
