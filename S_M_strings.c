@@ -1,4 +1,4 @@
-#include “main.h”
+#include "main.h"
 /**
  * this files contains all string fcts we need in our simple shell project
 */
@@ -16,7 +16,7 @@ int _strlen(char *str)
 	while (*str != '\0')
 	{
 		str++;
-		len++;
+		leng++;
 	}
 	return (leng);
 }
@@ -104,7 +104,6 @@ char *_strcat(char *dest, char *src)
 int _strcmp(char *s1, char *s2)
 {
 	int cotz;
-i
 	cotz = (int)*s1 - (int)*s2;
 
 	while (*s1)
