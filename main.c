@@ -12,7 +12,7 @@ int main(int argc, char **argv)
 {
 	char *lone = NULL;
 	char **comodo = NULL;
-	int stato = 0;
+	int stato = 0, m = 0;
 	(void) argc;
 
 	while (1)
@@ -24,12 +24,13 @@ int main(int argc, char **argv)
 				write(STDOUT_FILENO, "\n", 1);
 			return (stato);
 		}
-
+		m++;
+		
 		comodo = smtok(lone);
 		if (!comodo)
 			continue;
-
-	stato = smexec(comodo, argv);
+	
+		stato = smexec(comodo, argv, m);
 
 
 

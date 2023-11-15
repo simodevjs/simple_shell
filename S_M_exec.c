@@ -5,21 +5,32 @@
  * @argv: An array[string] of the arguments passed to my program
  * Return: The status code of execution
  */
-int smexec(char **cmd, char **argv)
+int smexec(char **cmd, char **argv, int m)
 {
+	char *fcmd;
 	pid_t SON;
 	int stat, j;
+
+	fcmd = _smpath(cmd[0]);
+	if(!fcmd)
+	{
+		smprinterror(argv[0] , cmd[0], m);
+		for (j = 0; cmd[j]; j++)
+                        free(cmd[j]), cmd[j] = NULL;
+                free(cmd), cmd = NULL;
+		return(127);
+	}		
+
 
 	SON = fork();
 	if (SON == 0)
 	{
-		if (execve(cmd[0], cmd, environ) == -1)
+		if (execve(fcmd, cmd, environ) == -1)
 		{
-			perror(argv[0]);
+			free(fcmd), fcmd = NULL;
 			for (j = 0; cmd[j]; j++)
 				free(cmd[j]), cmd[j] = NULL;
 			free(cmd), cmd = NULL;
-			exit(100);
 		}
 	}
 	else
@@ -28,6 +39,7 @@ int smexec(char **cmd, char **argv)
 		for (j = 0; cmd[j]; j++)
 			free(cmd[j]), cmd[j] = NULL;
 		free(cmd), cmd = NULL;
+		free(fcmd), fcmd = NULL;
 	}
 	return (WEXITSTATUS(stat));
 }

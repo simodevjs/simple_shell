@@ -21,7 +21,13 @@ extern char **environ;
 
 char *real_lone(void);
 char **smtok(char *line);
-int smexec(char **cmd, char **argv);
+int smexec(char **cmd, char **argv, int m);
+char *_smgetenv(char *varo);
+char *_smpath(char *comodo);
+
+void smprinterror(char *name, char *cmd, int m);
+char *_itoa(int j);
+void rev_str(char *st, int ln);
 
 
 int _strlen(char *str);
