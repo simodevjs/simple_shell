@@ -1,6 +1,8 @@
 #ifndef MAIN_H
 #define MAIN_H
 
+
+
 #include <dirent.h>
 #include <unistd.h>
 #include <stdlib.h>
@@ -13,9 +15,12 @@
 #include <string.h>
 
 #define BUFF_SIZE 1024
-
+#define DLM " \t\n"
 
 char *real_lone(void);
+char **smtok(char *line);
+
+
 int _strlen(char *str);
 char *_strdup(char *str);
 char *_strcpy(char *dest, char *src);

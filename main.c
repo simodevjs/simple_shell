@@ -12,7 +12,7 @@ int main(int argc, char **argv)
 {
 	char *lone = NULL;
 	char **comodo = NULL;
-	int stato = 0;
+	int j, stato = 0;
 	(void) argc;
 	(void) **argv;
 
@@ -26,15 +26,18 @@ int main(int argc, char **argv)
 			return (stato);
 		}
 
-	/**
-		* printf("%s", lone);
-	*/
+		comodo = smtok(lone);
+		if (!comodo)
+			continue;
 
-		comodo = tokonzo(lone);
+		for (j = 0; comodo[j]; j++)
+		{
+			printf("%s\n", comodo[j]);
+			free(comodo[j]), comodo[j] = NULL;
+		}
+		free(comodo), comodo = NULL;
 	/**
 		* stato = exo(comdo, argv);
 	*/
-
 	}
-	return (0);
 }

@@ -1,7 +1,4 @@
 #include "main.h"
-/**
- * this files contains all string fcts we need in our simple shell project
-*/
 
 /**
  * _strlen - Calculate the len of string
@@ -95,7 +92,7 @@ char *_strcat(char *dest, char *src)
 }
 
 /**
- * _strcmp - it compares two strings 
+ * _strcmp - it compares two strings
  * @s1: the string 1
  * @s2: the string 2
  * Return: it returns difference between them;
@@ -104,6 +101,7 @@ char *_strcat(char *dest, char *src)
 int _strcmp(char *s1, char *s2)
 {
 	int cotz;
+
 	cotz = (int)*s1 - (int)*s2;
 
 	while (*s1)

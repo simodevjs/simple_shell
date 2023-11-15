@@ -13,7 +13,7 @@ char *real_lone(void)
 
 	if (isatty(STDIN_FILENO))
 		write(STDOUT_FILENO, "$ ", 2);
-	
+
 	m = getline(&ln, &len, stdin);
 
 	if (m == -1)
