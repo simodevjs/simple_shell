@@ -1,12 +1,15 @@
 #include "main.h"
+/**
+ * _smpath - This is path finder
+ * @comodo: The command
+ * Return: return path
+ */
 
 char *_smpath(char *comodo)
 {
 	char *penv, *fullcmd, *rep;
 	int i;
 	struct stat st;
-
-
 
 	for (i = 0; comodo[i]; i++)
 	{
@@ -21,9 +24,7 @@ char *_smpath(char *comodo)
 	penv = _smgetenv("PATH");
 	if (!penv)
 		return (NULL);
-
 	rep = strtok(penv, ":");
-
 	while (rep)
 	{
 		fullcmd = malloc(_strlen(rep) + _strlen(comodo) + 2);

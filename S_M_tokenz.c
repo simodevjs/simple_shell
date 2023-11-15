@@ -5,7 +5,6 @@
  * @line: your inputs baby user
  * Return: The strings of input
  */
-
 char **smtok(char *line)
 {
 	char *tok = NULL, *temp = NULL;
@@ -15,7 +14,6 @@ char **smtok(char *line)
 	if (!line)
 		return (NULL);
 	temp = _strdup(line);
-
 	tok = strtok(temp, DLM);
 	if (tok == NULL)
 	{
@@ -23,8 +21,6 @@ char **smtok(char *line)
 		free(line), line = NULL;
 		return (NULL);
 	}
-
-
 	while (tok)
 	{
 		ct++;
@@ -38,9 +34,7 @@ char **smtok(char *line)
 		free(line), line = NULL;
 		return (NULL);
 	}
-
 	tok = strtok(line, DLM);
-
 	while (tok)
 	{
 		cmd[j] = _strdup(tok);

@@ -1,5 +1,9 @@
 #include "main.h"
-
+/**
+ * _smgetenv - This is an env finder
+ * @varo: variable that we want its env
+ * Return: The result of the env
+ */
 char *_smgetenv(char *varo)
 {
 	char *temp, *KEY, *val, *dup;
