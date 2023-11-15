@@ -1,4 +1,7 @@
 #include “main.h”
+/**
+ * this files contains all string fcts we need in our simple shell project
+*/
 
 /**
  * _strlen - Calculate the len of string
