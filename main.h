@@ -17,8 +17,11 @@
 #define BUFF_SIZE 1024
 #define DLM " \t\n"
 
+extern char **environ;
+
 char *real_lone(void);
 char **smtok(char *line);
+int smexec(char **cmd, char **argv);
 
 
 int _strlen(char *str);

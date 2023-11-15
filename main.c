@@ -12,9 +12,8 @@ int main(int argc, char **argv)
 {
 	char *lone = NULL;
 	char **comodo = NULL;
-	int j, stato = 0;
+	int stato = 0;
 	(void) argc;
-	(void) **argv;
 
 	while (1)
 	{
@@ -30,14 +29,15 @@ int main(int argc, char **argv)
 		if (!comodo)
 			continue;
 
-		for (j = 0; comodo[j]; j++)
-		{
-			printf("%s\n", comodo[j]);
-			free(comodo[j]), comodo[j] = NULL;
-		}
-		free(comodo), comodo = NULL;
+	stato = smexec(comodo, argv);
+
+
+
 	/**
-		* stato = exo(comdo, argv);
+		* for (j = 0; comodo[j]; j++)
+			free(comodo[j]), comodo[j] = NULL;
+
+		free(comodo), comodo = NULL;
 	*/
 	}
 }
