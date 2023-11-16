@@ -1,5 +1,11 @@
 #include "main.h"
 
+/**
+ * _smbuilted - This is our executive script
+ * @comodo: The result of smtok
+ * Return: the index
+ */
+
 int _smbuilted(char *comodo)
 {
 	char *builted[] = {"exit", "env", "setenv", "cd", NULL};
@@ -13,6 +19,14 @@ int _smbuilted(char *comodo)
 	return (0);
 }
 
+/**
+ * smhandbuilted - This is our executive script
+ * @comodo: m is the index
+ * @argv: The result of smtok
+ * @stato: The result of smtok
+ * @m: The result of smtok
+ */
+
 void smhandbuilted(char **comodo, char **argv, int *stato, int m)
 {
 	if (_strcmp(comodo[0], "exit") == 0)
@@ -22,6 +36,13 @@ void smhandbuilted(char **comodo, char **argv, int *stato, int m)
 		printenv(comodo, stato);
 }
 
+/**
+ * exit_shell - This is our executive script
+ * @comodo: m is the index
+ * @argv: The result of smtok
+ * @stato: The result of smtok
+ * @m: The result of smtok
+ */
 void exit_shell(char **comodo, char **argv, int *stato, int m)
 {
 	int j;
@@ -43,7 +64,7 @@ void exit_shell(char **comodo, char **argv, int *stato, int m)
 			write(STDERR_FILENO, MSG, _strlen(MSG));
 			write(STDERR_FILENO, comodo[1], _strlen(comodo[1]));
 			write(STDERR_FILENO, "\n", 1);
-			free (idu);
+			free(idu);
 			for (j = 0; comodo[j]; j++)
 				free(comodo[j]), comodo[j] = NULL;
 			free(comodo), comodo = NULL;
@@ -57,17 +78,21 @@ void exit_shell(char **comodo, char **argv, int *stato, int m)
 	free(comodo), comodo = NULL;
 	exit(exval);
 }
-
+/**
+ * printenv - This is our executive script
+ * @comodo: m is the index
+ * @stato: The result of smtok
+ */
 void printenv(char **comodo, int *stato)
 {
 	int i, j;
-	
+
 	for (i = 0; environ[i]; i++)
 	{
 		write(STDOUT_FILENO, environ[i], _strlen(environ[i]));
 		write(STDOUT_FILENO, "\n", 1);
 	}
-	
+
 	for (j = 0; comodo[j]; j++)
 		free(comodo[j]), comodo[j] = NULL;
 	free(comodo), comodo = NULL;
