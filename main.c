@@ -29,11 +29,11 @@ int main(int argc, char **argv)
 		comodo = smtok(lone);
 		if (!comodo)
 			continue;
-	
-		stato = smexec(comodo, argv, m);
-
-
-
+		
+		if (_smbuilted(comodo[0]))
+			smhandbuilted(comodo, argv, &stato, m);
+		else
+			stato = smexec(comodo, argv, m);
 	/**
 		* for (j = 0; comodo[j]; j++)
 			free(comodo[j]), comodo[j] = NULL;
