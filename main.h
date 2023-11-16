@@ -29,9 +29,13 @@ void smprinterror(char *name, char *cmd, int m);
 char *_itoa(int j);
 void rev_str(char *st, int ln);
 
+int _atoi(char *str);
+int _is_pos(char *str);
+
+
 int _smbuilted(char *comodo);
 void smhandbuilted(char **comodo, char **argv, int *stato, int m);
-void exit_shell(char **comodo, int *stato);
+void exit_shell(char **comodo,char **argv, int *stato, int m);
 void printenv(char **comodo, int *stato);
 
 

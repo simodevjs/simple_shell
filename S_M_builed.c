@@ -17,19 +17,43 @@ int _smbuilted(char *comodo)
 
 void smhandbuilted(char **comodo, char **argv, int *stato, int m)
 {
-	(void) argv;
-	(void) m;
-
 	if (_strcmp(comodo[0], "exit") == 0)
-		exit_shell(comodo, stato);
+		exit_shell(comodo, argv, stato, m);
 
 	else if (_strcmp(comodo[0], "env") == 0)
 		printenv(comodo, stato);
 }
 
-void exit_shell(char **comodo, int *stato)
+void exit_shell(char **comodo, char **argv, int *stato, int m)
 {
 	int j;
+	int exval = (*stato);
+	char *idu, MSG[] = ": exit : Illegal number: ";
+
+	if (comodo[1])
+	{
+		if (_is_pos(comodo[1]))
+		{
+			exval = _atoi(comodo[1]);
+		}
+		else
+		{
+			idu = _itoa(m);
+			write(STDERR_FILENO, argv[0], _strlen(argv[0]));
+			write(STDERR_FILENO, ":", 2);
+			write(STDERR_FILENO, idu, _strlen(idu));
+			write(STDERR_FILENO, MSG, _strlen(MSG));
+			write(STDERR_FILENO, comodo[1], _strlen(comodo[1]));
+			write(STDERR_FILENO, "\n", 1);
+			free(idu);
+			for (j = 0; comodo[j]; j++)
+				free(comodo[j]), comodo[j] = NULL;
+			free(comodo), comodo = NULL;
+			return;
+		}
+
+	}
+
 
 	for (j = 0; comodo[j]; j++)
 		free(comodo[j]), comodo[j] = NULL;
