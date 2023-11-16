@@ -35,7 +35,7 @@ int _is_pos(char *str);
 
 int _smbuilted(char *comodo);
 void smhandbuilted(char **comodo, char **argv, int *stato, int m);
-void exit_shell(char **comodo,char **argv, int *stato, int m);
+void exit_shell(char **comodo, char **argv, int *stato, int m);
 void printenv(char **comodo, int *stato);
 
 

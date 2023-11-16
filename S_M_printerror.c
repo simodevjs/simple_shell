@@ -73,6 +73,7 @@ void smprinterror(char *name, char *cmd, int m)
 int _is_pos(char *str)
 {
 	int i;
+	
 	if (!str)
 		 return(0);
 	 for (i = 0; str[i]; i++)
@@ -90,7 +91,7 @@ int _atoi(char *str)
 	for (i = 0; str[i]; i++)
 	{
 		num *= 10;
-		num *= (str[i] - '0');
+		num += (str[i] - '0');
 	}
 	return (num);
 }

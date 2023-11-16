@@ -2,9 +2,7 @@
 
 int _smbuilted(char *comodo)
 {
-	char *builted[] = {
-		"exit", "env", "setenv", "cd", NULL
-			};
+	char *builted[] = {"exit", "env", "setenv", "cd", NULL};
 	int j;
 
 	for (j = 0; builted[j]; j++)
@@ -38,40 +36,40 @@ void exit_shell(char **comodo, char **argv, int *stato, int m)
 		}
 		else
 		{
-			idu = _itoa(m);
+			idu  = _itoa(m);
 			write(STDERR_FILENO, argv[0], _strlen(argv[0]));
-			write(STDERR_FILENO, ":", 2);
+			write(STDERR_FILENO, ": ", 2);
 			write(STDERR_FILENO, idu, _strlen(idu));
 			write(STDERR_FILENO, MSG, _strlen(MSG));
 			write(STDERR_FILENO, comodo[1], _strlen(comodo[1]));
 			write(STDERR_FILENO, "\n", 1);
-			free(idu);
+			free (idu);
 			for (j = 0; comodo[j]; j++)
 				free(comodo[j]), comodo[j] = NULL;
 			free(comodo), comodo = NULL;
+			(*stato) = 2;
 			return;
 		}
 
 	}
-
-
 	for (j = 0; comodo[j]; j++)
 		free(comodo[j]), comodo[j] = NULL;
 	free(comodo), comodo = NULL;
-	exit(*stato);
+	exit(exval);
 }
 
 void printenv(char **comodo, int *stato)
 {
 	int i, j;
-	(void) stato;
+	
 	for (i = 0; environ[i]; i++)
 	{
 		write(STDOUT_FILENO, environ[i], _strlen(environ[i]));
 		write(STDOUT_FILENO, "\n", 1);
 	}
+	
 	for (j = 0; comodo[j]; j++)
 		free(comodo[j]), comodo[j] = NULL;
 	free(comodo), comodo = NULL;
-	*stato = 0;
+	(*stato) = 0;
 }
